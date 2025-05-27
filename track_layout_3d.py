@@ -1,17 +1,17 @@
 import plotly.graph_objects as go
-import plotly.express as px
+# import plotly.express as px
 import pandas as pd
 
 # This script creates an interactive 3D chart of the racing line data from a specified folder.
-# unfortunately, Plotly doesn't work super easily with animations, so this script will only output an interactive chart, not a .gif file.
+# Unfortunately, Plotly doesn't work super easily with animations, so this script will only output an interactive chart, not a .gif file.
 
-# references
+# References
 # https://plotly.com/python/animations/
 # https://plotly.com/python/#animations
 # https://plotly.com/python/visualizing-mri-volume-slices/
 # https://plotly.com/python/animations/
 
-# create and offset the racing line
+# Create and offset the racing line
 def create_racing_line(filename, xOffset, yOffset, zOffset, color):
     df = pd.read_csv(filename)
     return go.Scatter3d(
@@ -31,7 +31,7 @@ def create_racing_line(filename, xOffset, yOffset, zOffset, color):
 filename = "All_Data.csv"
 
 # set the chart bounds
-# these values should typically be ~10% bigger than the bounds of the paths you are drawing
+# these values should typically be ~10% bigger than the bounds of the paths you are drawing,
 # for instance, if a track has dimensions of 1000x1000x10 meters and is centered around the origin (0,0,0), then your bounds should be:
 # x: -550, 550
 # y: -550, 550
