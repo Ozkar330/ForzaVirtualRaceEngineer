@@ -113,7 +113,7 @@ telemetry_receiver = ForzaTelemetryReceiver()
 @app.route('/')
 def index():
     """Página principal del dashboard"""
-    return render_template('dashboard.html')
+    return render_template('forza_dashboard_frontend.html')
 
 @app.route('/api/current_data')
 def get_current_data():
