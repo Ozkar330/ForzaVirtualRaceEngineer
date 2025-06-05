@@ -2,9 +2,9 @@ import csv
 import os
 import socket
 import sys
-from data_packet import DataPacket
+from chatgpt.backend.data_packet import DataPacket
 
-host = '192.168.0.244'
+host = '192.168.0.89'
 port = 4843
 
 # Handles the execution of receiving/parsing to leave

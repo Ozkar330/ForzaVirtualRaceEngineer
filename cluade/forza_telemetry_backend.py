@@ -12,7 +12,7 @@ app.config['SECRET_KEY'] = 'forza_telemetry_secret'
 socketio = SocketIO(app, cors_allowed_origins="*")
 
 class ForzaTelemetryReceiver:
-    def __init__(self, host='localhost', port=1024):
+    def __init__(self, host='192.168.0.89', port=4843):
         self.host = host
         self.port = port
         self.socket = None
@@ -155,4 +155,4 @@ if __name__ == '__main__':
     
     # Iniciar el servidor web
     print("Iniciando servidor web en http://localhost:5000")
-    socketio.run(app, host='0.0.0.0', port=5000, debug=True)
+    socketio.run(app, host='0.0.0.0', port=5000, debug=False)
