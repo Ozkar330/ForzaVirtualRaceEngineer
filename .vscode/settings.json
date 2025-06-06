@@ -1,0 +1,51 @@
+{
+  // 🔄 Formateo automático y organización de imports
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+
+  // 🐍 Python
+  "python.defaultInterpreterPath": "${workspaceFolder}/venv/bin/python",
+  "python.linting.enabled": true,
+  "python.linting.flake8Enabled": true,
+  "python.formatting.provider": "black",
+  "python.analysis.typeCheckingMode": "basic",
+  "python.testing.pytestEnabled": true,
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestArgs": [
+    "backend/tests"
+  ],
+
+  // ⚛️ React + TypeScript
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+
+  // 📁 Ignorar basura
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/*.pyc": true,
+    "**/*.pyo": true,
+    "**/.DS_Store": true,
+    "**/node_modules": true,
+    "**/dist": true
+  },
+
+  // 🧪 Testing + dev
+  "jest.autoRun": {
+    "watch": true,
+    "onSave": "test-src-file"
+  },
+
+  // 🛠️ Estética y ergonomía
+  "editor.tabSize": 4,
+  "editor.insertSpaces": true,
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "Default Dark+",
+  "explorer.confirmDelete": false,
+  "terminal.integrated.defaultProfile.windows": "Command Prompt"
+}

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { io } from "socket.io-client";
 
-const socket = io("http://localhost:5000");
+const socket = io("http://192.168.0.89:5000");
 
 export const useTelemetry = () => {
   const [telemetry, setTelemetry] = useState<any>(null);
