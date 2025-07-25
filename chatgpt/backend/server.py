@@ -14,7 +14,7 @@ load_dotenv()
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "forza-secret"
 socketio = SocketIO(app, cors_allowed_origins="*")
-ip = "192.168.0.89"
+ip = "192.168.0.90"
 
 MOCK_MODE = os.getenv("MOCK_MODE", "False").lower() == "true"
 

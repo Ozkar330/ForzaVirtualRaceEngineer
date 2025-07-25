@@ -2,7 +2,7 @@
 import socket
 from data_packet import DataPacket
 
-UDP_IP = "192.168.0.89"  # Ajustar con la IP de la computadora
+UDP_IP = "192.168.0.90"  # Ajustar con la IP de la computadora
 UDP_PORT = 1025
 BUFFER_SIZE = 1024
 
