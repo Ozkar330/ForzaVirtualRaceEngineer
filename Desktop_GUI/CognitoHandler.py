@@ -61,11 +61,18 @@ class CognitoHandler:
 
     def get_valid_access_token(self):
         if not self.tokens:
-            raise Exception("⚠️ No hay sesión activa")
+            raise Exception("No hay sesión activa")
 
         if time.time() > self.tokens["expires_at"] - 60:  # Renovar si faltan <60s
-            print("🔁 Token expirado o por expirar. Renovating...")
-            new_tokens = self.refresh_token(self.tokens["RefreshToken"])
-            return new_tokens["AccessToken"]
-        else:
-            return self.tokens["AccessToken"]
+            print("Token expirado o por expirar. Renovating...")
+            self.refresh_token()
+
+        return self.tokens["AccessToken"]
+
+    def get_user_attributes(self):
+        if not self.tokens:
+            raise Exception("No token disponible. Haz login primero.")
+        response = self.client.get_user(
+            AccessToken=self.tokens["AccessToken"]
+        )
+        return {attr["Name"]: attr["Value"] for attr in response["UserAttributes"]}
