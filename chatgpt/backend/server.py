@@ -45,6 +45,7 @@ def health():
 
 
 if __name__ == "__main__":
+
     start_backend()
     print("🚀 Servidor Flask iniciado en http://" + ip + ":5000")
     socketio.run(app, host=ip, port=5000)  # Ajustar con la IP de la computadora

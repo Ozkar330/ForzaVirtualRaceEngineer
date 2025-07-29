@@ -73,3 +73,5 @@ entry_pass.pack()
 tk.Button(root, text="Iniciar sesión", command=on_login).pack(pady=20)
 
 root.mainloop()
+
+wait
