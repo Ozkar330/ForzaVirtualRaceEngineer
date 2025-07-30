@@ -1,6 +1,5 @@
 from struct import unpack
 
-
 class TelemetryParser:
     '''
         TelemetryParser - Validate and parse Forza Telemetry Data Packets from

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import { useTelemetry } from "./hooks/useTelemetry";
 import { HeaderInfo } from "./components/HeaderInfo";
 import { Dashboard } from "./components/Dashboard";

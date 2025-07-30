@@ -4,7 +4,7 @@ import socket
 import sys
 from chatgpt.backend.data_packet import DataPacket
 
-host = "192.168.0.90"
+host = "192.168.0.86"
 port = 1025
 
 # Handles the execution of receiving/parsing to leave

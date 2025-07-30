@@ -10,6 +10,8 @@ class GameHandler:
     def start_udp_listener(self, on_data_callback):
         print(f"🎧 Escuchando paquetes UDP en {self.host_ip}:{self.udp_port}...")
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        # Mac compatibility: Allow address reuse
+        sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         sock.bind((self.host_ip, self.udp_port))
 
         packet_parser = TelemetryParser(version="dash")
