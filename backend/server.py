@@ -3,7 +3,6 @@ from flask import Flask
 from flask_socketio import SocketIO
 import threading
 from GameHandler import GameHandler
-from udp_listener_to_delete import start_udp_listener
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "forza-secret"

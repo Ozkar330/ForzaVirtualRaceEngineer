@@ -3,3 +3,6 @@
 
 # env files
 venv
+
+# Claude files
+CLAUDE.md

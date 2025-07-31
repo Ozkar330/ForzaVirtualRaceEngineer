@@ -12,6 +12,7 @@ class GameHandler:
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         # Mac compatibility: Allow address reuse
         sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEPORT, 1)
         sock.bind((self.host_ip, self.udp_port))
 
         packet_parser = TelemetryParser(version="dash")
