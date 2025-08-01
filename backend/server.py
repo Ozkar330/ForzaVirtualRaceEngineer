@@ -6,7 +6,11 @@ from GameHandler import GameHandler
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "forza-secret"
-socketio = SocketIO(app, cors_allowed_origins="*")
+socketio = SocketIO(
+    app, 
+    cors_allowed_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
+    async_mode='threading'
+)
 ip = "192.168.0.86"
 
 def handle_parsed_data(data):

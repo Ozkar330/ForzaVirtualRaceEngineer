@@ -1,6 +1,6 @@
 # udp_listener.py
 import socket
-from data_packet_to_delete import DataPacket
+from archive.data_packet_to_delete import DataPacket
 
 UDP_IP = "192.168.0.86"  # Ajustar con la IP de la computadora
 UDP_PORT = 1025
