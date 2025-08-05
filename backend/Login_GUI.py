@@ -6,15 +6,18 @@ from CognitoHandler import CognitoHandler
 
 class Login_GUI:
     def __init__(self):
+        self.cognito_handler = None
+        self.local_ip = None
+        self.local_port = None
         self.root = tk.Tk()
         self.show_login_window()
 
+
     def show_login_window(self):
-        # Crear ventana
+        # Crear ventana de Login
         self.root.title("Virtual Race Engineer")
         self.root.geometry("400x200")
 
-        # Widgets
         tk.Label(self.root, text="Usuario:").pack(pady=(10, 0))
         entry_user = tk.Entry(self.root)
         entry_user.pack()
@@ -29,17 +32,17 @@ class Login_GUI:
 
 
     # Nueva ventana post-login
-    def show_main_window(self, ch: CognitoHandler):
+    def show_main_window(self):
         # Limpiar la ventana
         for widget in self.root.winfo_children():
             widget.destroy()
 
-        self.root.geometry("400x200")
+        self.root.geometry("400x300")
         self.root.title("Virtual Race Engineer")
 
-        attributes = ch.get_user_attributes()
+        attributes = self.cognito_handler.get_user_attributes()
 
-        # Mostrar nombre del usuario
+        # Mostrar nombre/correo del usuario
         tk.Label(self.root, text=f"Bienvenido, {attributes["email"]}!", font=("Arial", 12)).pack(pady=(10, 10))
 
         tk.Label(self.root, text="Dirección IP:").pack(pady=(10, 0))
@@ -53,7 +56,15 @@ class Login_GUI:
         def open_web_interface():
             webbrowser.open("http://localhost:5173")
 
-        tk.Button(self.root, text="Abrir interfaz web", command=open_web_interface).pack(pady=10)
+        def save_config():
+            self.local_ip = ip_entry.get()
+            self.local_port = port_entry.get()
+            self.root.destroy()
+
+        tk.Button(self.root, text="Guardar", command=save_config).pack(pady=10)
+        tk.Button(self.root, text="Abrir interfaz web213", command=open_web_interface).pack(pady=10)
+
+
 
     # Función que se ejecuta al presionar "Iniciar sesión"
     def on_login(self):
@@ -66,12 +77,11 @@ class Login_GUI:
         tokens = None
 
         try:
-            # tokens = login_user(username, password)
-            ch = CognitoHandler(username, password)
-            tokens = ch.login()
+            self.cognito_handler = CognitoHandler(username, password)
+            tokens = self.cognito_handler.login()
 
             #messagebox.showinfo("Login exitoso", f"Access token:\n{tokens['AccessToken'][:50]}...")
-            self.show_main_window(ch)
+            self.show_main_window()
         except Exception as e:
             messagebox.showerror("Error de autenticación", str(e))
 

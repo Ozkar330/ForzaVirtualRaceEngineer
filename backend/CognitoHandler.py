@@ -71,7 +71,7 @@ class CognitoHandler:
 
     def get_user_attributes(self):
         if not self.tokens:
-            raise Exception("No token disponible. Haz login primero.")
+            raise Exception("No hay token disponible. Haz login primero.")
         response = self.client.get_user(
             AccessToken=self.tokens["AccessToken"]
         )
