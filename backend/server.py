@@ -13,7 +13,6 @@ socketio = SocketIO(
     async_mode='threading'
 )
 
-
 def handle_parsed_data(data):
     socketio.emit("telemetry", data)
 
