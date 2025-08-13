@@ -28,9 +28,9 @@ wheels/
 *.egg
 
 # Virtual environments
-venv/
-env/
-ENV/
+backend/venv/
+backend/env/
+backend/ENV/
 
 # OS generated files
 .DS_Store
@@ -44,3 +44,6 @@ Thumbs.db
 # Logs
 *.log
 logs/
+
+# Node modules
+node_modules

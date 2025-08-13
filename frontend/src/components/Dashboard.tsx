@@ -20,9 +20,9 @@ export const Dashboard: React.FC<DashboardProps> = ({
   onStart,
   onStop,
   onExport,
-  sessionActive
+  // sessionActive
 }) => {
-  if (!telemetry) return <div style={{ padding: '2rem' }}>Esperando datos…</div>;
+  if (!telemetry) return <div style={{ padding: '2rem', color: 'white', fontSize: '18px' }}>Esperando datos…</div>;
 
   return (
     <div style={{ padding: '2rem' }}>
@@ -46,7 +46,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
         }}
       >
         <div>
-          <h3>Fuerzas G</h3>
+          <h3 style={{ color: 'white', textAlign: 'center' }}>Fuerzas G</h3>
           <GForceChartCircle
             gLat={telemetry.acceleration_x}
             gLong={telemetry.acceleration_z}
@@ -54,7 +54,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
         </div>
 
         <div style={{ textAlign: 'center' }}>
-          <h3>RPM + Velocidad</h3>
+          <h3 style={{ color: 'white' }}>RPM + Velocidad</h3>
           <RPMAndSpeedGauge
             rpmCurrent={telemetry.engine_current_rpm}
             rpmMax={telemetry.engine_max_rpm}
@@ -64,7 +64,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
         </div>
 
         <div>
-          <h3>Tiempos de Vuelta</h3>
+          <h3 style={{ color: 'white', textAlign: 'center' }}>Tiempos de Vuelta</h3>
           <LapTable
             lapNum={telemetry.lap_num}
             lapTimeCurrent={telemetry.lap_time_current}
@@ -84,7 +84,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
         }}
       >
         <div>
-          <h3>Inputs</h3>
+          <h3 style={{ color: 'white', textAlign: 'center' }}>Inputs</h3>
           <ThrottleBrakeMeter
             throttle={telemetry.throttle}
             brake={telemetry.brake}
@@ -92,12 +92,12 @@ export const Dashboard: React.FC<DashboardProps> = ({
         </div>
 
         <div>
-          <h3>Volante</h3>
+          <h3 style={{ color: 'white', textAlign: 'center' }}>Volante</h3>
           <SteeringWheelSVG angle={telemetry.steering_angle} />
         </div>
 
         <div>
-          <h3>Vuelta / Posición</h3>
+          <h3 style={{ color: 'white', textAlign: 'center' }}>Vuelta / Posición</h3>
           <div style={{
             fontSize: 20,
             fontWeight: 'bold',

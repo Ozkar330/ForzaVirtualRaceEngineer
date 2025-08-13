@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Virtual Race Engineer - Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-form">
+            <h2>Virtual Race Engineer</h2>
+            
+            <div class="form-group">
+                <label for="username">Usuario:</label>
+                <input type="text" id="username" placeholder="Ingresa tu usuario">
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" placeholder="Ingresa tu contraseña">
+            </div>
+            
+            <button id="loginBtn" class="btn-primary">Iniciar sesión</button>
+            
+            <div id="error-message" class="error hidden"></div>
+            <div id="loading" class="loading hidden">Iniciando sesión...</div>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>

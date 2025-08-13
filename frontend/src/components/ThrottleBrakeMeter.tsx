@@ -22,7 +22,7 @@ export const ThrottleBrakeMeter: React.FC<ThrottleBrakeMeterProps> = ({ throttle
               }}
             />
           </div>
-          <span style={{ marginTop: '0.5rem', fontSize: 14 }}>Throttle</span>
+          <span style={{ marginTop: '0.5rem', fontSize: 14, color: 'white' }}>Throttle</span>
         </div>
 
         {/* Brake */}
@@ -37,7 +37,7 @@ export const ThrottleBrakeMeter: React.FC<ThrottleBrakeMeterProps> = ({ throttle
               }}
             />
           </div>
-          <span style={{ marginTop: '0.5rem', fontSize: 14 }}>Brake</span>
+          <span style={{ marginTop: '0.5rem', fontSize: 14, color: 'white' }}>Brake</span>
         </div>
       </div>
     </div>

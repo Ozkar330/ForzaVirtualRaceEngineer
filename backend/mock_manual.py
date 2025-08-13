@@ -4,7 +4,7 @@ import struct
 import time
 import random
 
-UDP_IP = "192.168.0.86"
+UDP_IP = "192.168.0.143"
 UDP_PORT = 1025
 FREQ_HZ = 60
 INTERVAL = 1.0 / FREQ_HZ

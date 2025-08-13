@@ -38,7 +38,7 @@ export const RPMAndSpeedGauge: React.FC<RPMAndSpeedGaugeProps> = ({
         endAngle={-45}
       >
         <PolarAngleAxis type="number" domain={[0, 100]} tick={false} />
-        <RadialBar background clockWise dataKey="value" />
+        <RadialBar background dataKey="value" />
         <text x="50%" y="45%" textAnchor="middle" dominantBaseline="middle" fontSize={28} fontWeight={700} fill="white">
           {Math.round(speed)} km/h
         </text>

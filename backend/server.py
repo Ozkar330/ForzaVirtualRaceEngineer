@@ -2,14 +2,15 @@
 from flask import Flask
 from flask_socketio import SocketIO
 import threading
+import argparse
 from GameHandler import GameHandler
-from Login_GUI import Login_GUI
+import json
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "forza-secret"
 socketio = SocketIO(
     app, 
-    cors_allowed_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
+    cors_allowed_origins=['*', 'file://', 'http://localhost:5173' ],
     async_mode='threading'
 )
 
@@ -31,10 +32,29 @@ def health():
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Forza Virtual Race Engineer Backend')
+    parser.add_argument('--ip', default='192.168.0.86', help='IP address for UDP telemetry')
+    parser.add_argument('--udp-port', default='1025', help='UDP port for Forza telemetry')
+    
+    args = parser.parse_args()
+    
+    local_ip = args.ip
+    udp_port = int(args.udp_port)
+    flask_port = 5000  # Puerto fijo para Flask
+    config = {
+        "flask_host": local_ip,
+        "flask_port": flask_port
+    }
 
-    gui = Login_GUI()
-
-
-    start_backend(gui.local_ip)
-    print(f"🚀 Servidor Flask iniciado en http:// {gui.local_ip}:{gui.local_port}")
-    socketio.run(app, host=gui.local_ip, port=gui.local_port, allow_unsafe_werkzeug=True)
+    # Guardar config en archivo que React pueda leer
+    with open('../frontend/config.json', 'w') as f:
+        json.dump(config, f)
+    
+    print(f"🟢 Configuración:")
+    print(f"   IP telemetría: {local_ip}")
+    print(f"   Puerto UDP: {udp_port}")
+    print(f"   Puerto Flask: {flask_port}")
+    
+    start_backend(local_ip)
+    print(f"🚀 Servidor Flask iniciado en http://{local_ip}:{flask_port}")
+    socketio.run(app, host=local_ip, port=flask_port, allow_unsafe_werkzeug=True)
