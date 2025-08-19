@@ -35,6 +35,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Forza Virtual Race Engineer Backend')
     parser.add_argument('--ip', default='192.168.0.86', help='IP address for UDP telemetry')
     parser.add_argument('--udp-port', default='1025', help='UDP port for Forza telemetry')
+    parser.add_argument('--dev', action='store_true', help='Enable dev mode')
     
     args = parser.parse_args()
     
@@ -47,14 +48,21 @@ if __name__ == "__main__":
     }
 
     # Guardar config en archivo que React pueda leer
-    with open('../frontend/config.json', 'w') as f:
-        json.dump(config, f)
+    if args.dev:
+        # Desarrollo
+        print(f"dev mode enabled")
+        with open('../frontend/public/config.json', 'w') as f:
+            json.dump(config, f)
+    else:
+        # Produccion
+        with open('../frontend/dist/config.json', 'w') as f:
+            json.dump(config, f)
     
     print(f"🟢 Configuración:")
     print(f"   IP telemetría: {local_ip}")
     print(f"   Puerto UDP: {udp_port}")
     print(f"   Puerto Flask: {flask_port}")
-    
+
     start_backend(local_ip)
     print(f"🚀 Servidor Flask iniciado en http://{local_ip}:{flask_port}")
     socketio.run(app, host=local_ip, port=flask_port, allow_unsafe_werkzeug=True)

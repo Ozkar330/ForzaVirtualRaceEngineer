@@ -3,12 +3,12 @@ import { io, Socket } from "socket.io-client";
 
 export const useTelemetry = () => {
   const [telemetry, setTelemetry] = useState<unknown>(null);
-  const [config, setConfig] = useState({ flask_host: '192.168.0.86', flask_port: '1025' });
+  const [config, setConfig] = useState({ flask_host: '192.168.0.86', flask_port: '5000' });
   const socketRef = useRef<Socket | null>(null);
 
   useEffect(() => {
     // Cargar configuración
-    fetch('config.json')
+    fetch('./config.json')
       .then(res => res.json())
       .then(setConfig)
       .catch(err => {

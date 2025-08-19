@@ -78,7 +78,8 @@ class BackendManager {
                     args = [
                         pythonScript,
                         '--ip', config.ip,
-                        '--udp-port', config.port
+                        '--udp-port', config.port,
+                        '--dev'
                     ];
                     
                     this.addLog(`Comando a ejecutar: ${pythonCmd} ${args.join(' ')}`);
