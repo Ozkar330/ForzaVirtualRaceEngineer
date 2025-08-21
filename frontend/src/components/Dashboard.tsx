@@ -7,8 +7,27 @@ import { ThrottleBrakeMeter } from './ThrottleBrakeMeter';
 import { GForceChartCircle } from './GForceChartCircle';
 import { SessionControlPanel } from './SessionControlPanel';
 
+// Telemetry data interface based on Forza dash format
+interface TelemetryData {
+  engine_current_rpm: number;
+  engine_max_rpm: number;
+  speed: number;
+  gear_num: number;
+  acceleration_x: number;
+  acceleration_z: number;
+  steering_angle: number;
+  throttle: number;
+  brake: number;
+  lap_num: number;
+  lap_time_current: number;
+  lap_time_last: number;
+  lap_time_best: number;
+  race_position: number;
+  [key: string]: unknown; // Allow for additional telemetry fields
+}
+
 interface DashboardProps {
-  telemetry: any;
+  telemetry: TelemetryData | null;
   onStart: () => void;
   onStop: () => void;
   onExport: () => void;
