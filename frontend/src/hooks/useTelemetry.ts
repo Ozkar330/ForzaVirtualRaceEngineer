@@ -61,7 +61,7 @@ export const useTelemetry = () => {
       });
 
       socket.on("telemetry", (data: unknown) => {
-        console.log("📡 Telemetría recibida:", data);
+        // console.log("📡 Telemetría recibida:", data);
         // Validate telemetry data before setting state
         if (data && typeof data === 'object') {
           setTelemetry(data as TelemetryData);

@@ -59,7 +59,7 @@ export const SteeringWheelSVG: React.FC<SteeringWheelSVGProps> = ({ angle }) => 
         <FallbackWheel />
       ) : (
         <img
-          src="./steering_wheel_icon.svg"
+          src="./volanteFormula.svg"
           alt="Volante"
           style={{
             width: 150,
