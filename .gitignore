@@ -5,6 +5,9 @@
 # Claude
 CLAUDE.md
 
+# Gemini
+GEMINI.md
+
 # Python
 __pycache__/
 *.py[cod]
