@@ -1,0 +1,73 @@
+{
+  "name": "forza-virtual-race-engineer-electron",
+  "version": "1.0.0",
+  "description": "Electron interface for Forza Virtual Race Engineer",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "dist": "electron-builder",
+    "dist-win": "electron-builder --win",
+    "dist-mac": "electron-builder --mac",
+    "dist-linux": "electron-builder --linux"
+  },
+  "devDependencies": {
+    "electron": "^32.0.0",
+    "electron-builder": "^25.1.8"
+  },
+  "dependencies": {
+    "@aws-sdk/client-cognito-identity-provider": "^3.0.0"
+  },
+  "build": {
+    "appId": "com.forzavirtualraceengineer.app",
+    "productName": "ForzaVirtualRaceEngineer",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "cognito-handler.js",
+      "backend-manager.js",
+      "renderer/**/*",
+      "../backend/**/*",
+      "!../backend/venv/**/*",
+      "!../backend/__pycache__/**/*",
+      "!../backend/*.pyc"
+    ],
+    "extraResources": [
+      {
+        "from": "../backend/dist/server",
+        "to": "backend/server"
+      },
+      {
+        "from": "../backend/requirements.txt",
+        "to": "backend/requirements.txt"
+      },
+      {
+        "from": "../frontend/dist",
+        "to": "frontend/dist"
+      }
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.ico"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "assets/icon.icns",
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "entitlements": "entitlements.mac.plist",
+      "entitlementsInherit": "entitlements.mac.plist"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "assets/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}

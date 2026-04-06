@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Virtual Race Engineer - Configuración</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="config-form">
+            <h2>Virtual Race Engineer</h2>
+            <div id="welcome-text" class="welcome-text"></div>
+            
+            <div class="form-group">
+                <label for="ip">Dirección IP:</label>
+                <input type="text" id="ip" placeholder="192.168.0.86" value="192.168.0.86">
+            </div>
+            
+            <div class="form-group">
+                <label for="port">Puerto:</label>
+                <input type="text" id="port" placeholder="1025" value="1025">
+            </div>
+            
+            <button id="saveBtn" class="btn-primary">Guardar</button>
+            <button id="startServerBtn" class="btn-secondary">Iniciar Servidor</button>
+            <button id="openDashboardBtn" class="btn-secondary">Abrir Dashboard</button>
+            
+            <div id="status-message" class="hidden"></div>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+</body>
+</html>
